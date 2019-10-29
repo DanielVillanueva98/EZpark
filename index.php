@@ -1,3 +1,21 @@
+<?php
+
+if($_POST["submit"]) {
+    $recipient="your@email.address";
+    $subject="Form to email message";
+    $sender=$_POST["sender"];
+    $senderEmail=$_POST["senderEmail"];
+    $message=$_POST["message"];
+
+    $mailBody="Name: $sender\nEmail: $senderEmail\n\n$message";
+
+    mail($recipient, $subject, $mailBody, "From: $sender <$senderEmail>");
+
+    $thankYou="<p>Thank you! Your message has been sent.</p>";
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <title>VillPark</title>
@@ -327,7 +345,7 @@ body, html {
     <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: 747-266-4979</p>
     <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: mail@mail.com</p>
     <br>
-    <form action="dannyvillanueva200@gmail.com" target="_blank">
+    <form action="/action_page.php" target="_blank">
       <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
       <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
       <p><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject"></p>
